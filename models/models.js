@@ -19,7 +19,7 @@ var itemSchema = new dbSchema ({
 
 });
 
-var Item= mongoose.model('Items', itemSchema);
+var Item = mongoose.model('Items', itemSchema);
 var i = new Item;
 i.name = "Balenciagas"
 i.links = ["www.facebook.com"];
