@@ -1,0 +1,19 @@
+html, body, .shop-container{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #ECECEC;
+
+}
+
+
+.shop-container{
+  width: 100%;
+  height: 100%;
+}
+
+
+body{}
+.ui.secondary.pointing.menu{
+  background-color: white ;
+}
