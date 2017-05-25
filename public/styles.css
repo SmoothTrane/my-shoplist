@@ -8,12 +8,58 @@ html, body, .shop-container{
 
 
 .shop-container{
+
   width: 100%;
+  height: 100%;
+
+}
+
+.header{
   height: 100%;
 }
 
 
-body{}
-.ui.secondary.pointing.menu{
-  background-color: white ;
+body{
+
+
+}
+
+p{
+  padding: 15px;
+  color: white;
+}
+
+h1{
+  color: green;
+  text-align: center;
+}
+
+.top{
+  width: 100%;
+  background-color: #262626;
+  padding: 20px;
+  text-align: center;
+}
+
+.after-top{
+  width: 100%;
+min-height: 100%;
+color: black;
+  background-color: white;
+}
+
+button.medium.ui.button.add-btn{
+  background-color: white;
+  width: 200px;
+
+}
+.items-container h1{
+}
+
+
+.ui.card{
+  margin: 0 auto;
+}
+
+.cont{
 }
