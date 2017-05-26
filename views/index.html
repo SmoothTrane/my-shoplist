@@ -19,10 +19,13 @@
 
 <body ng-app="ShopList">
 
-  <div class="shop-container" ng-controller="ListController">
+  <div class="shop-container" ng-controller="ItemController">
 
         <div class="top">
-          <h1>{{title}}</h1>
+
+
+
+
           <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
           </p>
           <button class="medium ui button add-btn">
@@ -33,16 +36,15 @@
         <div class="after-top">
           <h1> Items to shop </h1>
 
-          <div class="ui four column doubling stackable grid container" ng-app="myApp" ng-controller="myCtrl">
-            {{firstName + " " + lastName}}
+          <div class="ui four column doubling stackable grid container" >
 
-              <div class="column">
+              <div class="column" ng-repeat="item in items">
                 <div class="ui card">
                   <div class="image item-img">
                     <img src="https://res.cloudinary.com/ssenseweb/image/upload/b_white/v669/171168M236001_1.jpg">
                   </div>
                   <div class="content">
-                    <a class="header item-name">Maison Margiela Future </a>
+                    <a class="header item-name">{{item.name}}</a>
                     <div class="meta">
                     </div>
 
@@ -56,25 +58,7 @@
                 </div>
               </div>
             </div>
-              <div class="column">
-                <div class="ui card">
-                  <div class="image item-img">
-                    <img src="http://images.neimanmarcus.com/ca/1/product_assets/N/3/V/Q/B/NMN3VQB_mu.jpg">
-                  </div>
-                  <div class="content">
-                    <a class="header item-name">Burberry Check Trim polo shirt</a>
-                    <div class="meta">
-                    </div>
 
-                  </div>
-                  <div class="extra content">
-                    <a>
-                      <i class="user icon"></i>
-                      <span class="item-price"> Price: 175 </span>
-                    </a>
-                  </div>
-                </div>
-            </div>
             </div>
         </div>
 
@@ -117,28 +101,6 @@ function getAllItems(){
     var itemName = $(".ui.card .item-name");
     var itemImg = $("ui.card .item-img");
     //var uiCard = $("<div>", {id: "foo", "class": "a", ""});
-
-
-
-    $.ajax({
-      url:"/items",
-      type:"GET",
-      dataType: "json",
-      success: function(data){
-        $.each(data, function(i,item){
-          var priceusd = data[i].priceusd;
-          var name = data[i].name;
-          var img = data[i].image;
-          var id = data[i]._id;
-          cardContainer.append(
-
-
-          );
-
-        });
-      }
-
-    });
 
 
 
