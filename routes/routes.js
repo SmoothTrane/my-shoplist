@@ -6,6 +6,20 @@ module.exports = function(app){
   var homeController = require("../controllers/HomeController");
 
 
+  // app.get('/items', function(req, res) {
+  //   itemController.getAllItems()
+  //
+  // });
+
+    app.route("/items")
+      .get(itemController.getAllItems)
+      .post(itemController.addItem);
+
+      app.route("/items/:itemId")
+        .get(itemController.getItemById)
+        .put(itemController.editItem)
+        .delete(itemController.deleteItem);
+
 
   app.get('/', function(req, res) {
 
@@ -15,13 +29,7 @@ module.exports = function(app){
     res.status(404).send("ERROR 404 NOT FOUND")
   });
 
-  app.route("/items")
-    .get(itemController.getAllItems)
-    .post(itemController.addItem);
 
-    app.route("/items/:itemId")
-      .get(itemController.getItemById)
-      .put(itemController.editItem)
-      .delete(itemController.deleteItem);
+
 
 };

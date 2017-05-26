@@ -63,3 +63,13 @@ button.medium.ui.button.add-btn{
 
 .cont{
 }
+
+/*.ui.card>.image>img, .ui.cards>.card>.image>img{
+  height: 200px !important;
+}*/
+
+
+
+.ui .card:hover{
+  cursor: pointer;
+}

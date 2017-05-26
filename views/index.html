@@ -10,15 +10,19 @@
        <script src="/public/scripts.js"> </script>
        <link rel = "stylesheet" type="text/css" href="/public/styles.css">
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.1.7/semantic.min.css">
+<script>
+
+
+</script>
 
 </head>
 
-<body>
+<body ng-app="ShopList">
 
-  <div class="shop-container">
+  <div class="shop-container" ng-controller="ListController">
 
         <div class="top">
-          <h1>ShopList</h1>
+          <h1>{{title}}</h1>
           <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
           </p>
           <button class="medium ui button add-btn">
@@ -29,14 +33,16 @@
         <div class="after-top">
           <h1> Items to shop </h1>
 
-          <div class="ui four column doubling stackable grid container">
+          <div class="ui four column doubling stackable grid container" ng-app="myApp" ng-controller="myCtrl">
+            {{firstName + " " + lastName}}
+
               <div class="column">
                 <div class="ui card">
-                  <div class="image">
+                  <div class="image item-img">
                     <img src="https://res.cloudinary.com/ssenseweb/image/upload/b_white/v669/171168M236001_1.jpg">
                   </div>
                   <div class="content">
-                    <a class="header">Maison Margiela Future Sneakers</a>
+                    <a class="header item-name">Maison Margiela Future </a>
                     <div class="meta">
                     </div>
 
@@ -45,29 +51,26 @@
                   <div class="extra content">
                     <a>
                       <i class="user icon"></i>
-                      Price: 591
+                      <span class="item-price"> Price: 591 </span>
                     </a>
                 </div>
               </div>
             </div>
               <div class="column">
                 <div class="ui card">
-                  <div class="image">
-                    <img src="http://n.nordstrommedia.com/ImageGallery/store/product/Zoom/16/_12283756.jpg?crop=pad&pad_color=FFF&format=jpeg&w=391&h=600&q=60.jpg">
+                  <div class="image item-img">
+                    <img src="http://images.neimanmarcus.com/ca/1/product_assets/N/3/V/Q/B/NMN3VQB_mu.jpg">
                   </div>
                   <div class="content">
-                    <a class="header">Stevie Feliciano</a>
+                    <a class="header item-name">Burberry Check Trim polo shirt</a>
                     <div class="meta">
-                      <span class="date">Joined in 2014</span>
                     </div>
-                    <div class="description">
-                      Stevie Feliciano is a library scientist living in New York City. She likes to spend her time reading, running, and writing.
-                    </div>
+
                   </div>
                   <div class="extra content">
                     <a>
                       <i class="user icon"></i>
-                      22 Friends
+                      <span class="item-price"> Price: 175 </span>
                     </a>
                   </div>
                 </div>
@@ -79,6 +82,73 @@
 
 </div>
 
+
+
 </body>
+
+
+       <script>
+
+       loadCards();
+
+       $(function(){
+
+
+
+       });
+$(".ui.card").click(function(){
+
+
+
+});
+
+
+function getAllItems(){
+
+
+}
+
+
+  function loadCards(){
+    var jsonData;
+    var cardContainer= $(".ui.four.column.doubling.stackable.grid.container");
+
+    var itemPrice = $(".ui.card .item-price");
+    var itemName = $(".ui.card .item-name");
+    var itemImg = $("ui.card .item-img");
+    //var uiCard = $("<div>", {id: "foo", "class": "a", ""});
+
+
+
+    $.ajax({
+      url:"/items",
+      type:"GET",
+      dataType: "json",
+      success: function(data){
+        $.each(data, function(i,item){
+          var priceusd = data[i].priceusd;
+          var name = data[i].name;
+          var img = data[i].image;
+          var id = data[i]._id;
+          cardContainer.append(
+
+
+          );
+
+        });
+      }
+
+    });
+
+
+
+
+  }
+
+
+
+        </script>
+
+
 
 </html>
