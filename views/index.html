@@ -41,7 +41,7 @@
               <div class="column" ng-repeat="item in items">
                 <div class="ui card">
                   <div class="image item-img">
-                    <img src="https://res.cloudinary.com/ssenseweb/image/upload/b_white/v669/171168M236001_1.jpg">
+                    <img src =  {{item.image}} >
                   </div>
                   <div class="content">
                     <a class="header item-name">{{item.name}}</a>
@@ -53,7 +53,7 @@
                   <div class="extra content">
                     <a>
                       <i class="user icon"></i>
-                      <span class="item-price"> Price: 591 </span>
+                      <span class="item-price"> Price: {{item.priceusd}} </span>
                     </a>
                 </div>
               </div>
@@ -64,53 +64,45 @@
 
 
 
+        <div class="ui modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Add New Item
+          </div>
+          <div class="image content">
+            <div class="ui medium image">
+            </div>
+            <div class="description">
+              <form class="ui form">
+                <div class="field">
+                  <label>Item Name</label>
+                  <input type="text" name="name" placeholder="Item Name">
+                </div>
+                <div class="field">
+                  <label>Price</label>
+                  <input type="text" name="priceusd" placeholder="Item Price">
+                </div>
+                
+                <button class="ui button" type="submit">Submit</button>
+            </form>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui black deny button">
+              Nope
+            </div>
+            <div class="ui positive right labeled icon button">
+              Yep, that's me
+              <i class="checkmark icon"></i>
+            </div>
+          </div>
+        </div>
+
+
 </div>
 
 
 
 </body>
-
-
-       <script>
-
-       loadCards();
-
-       $(function(){
-
-
-
-       });
-$(".ui.card").click(function(){
-
-
-
-});
-
-
-function getAllItems(){
-
-
-}
-
-
-  function loadCards(){
-    var jsonData;
-    var cardContainer= $(".ui.four.column.doubling.stackable.grid.container");
-
-    var itemPrice = $(".ui.card .item-price");
-    var itemName = $(".ui.card .item-name");
-    var itemImg = $("ui.card .item-img");
-    //var uiCard = $("<div>", {id: "foo", "class": "a", ""});
-
-
-
-
-  }
-
-
-
-        </script>
-
-
 
 </html>

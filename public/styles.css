@@ -73,3 +73,34 @@ button.medium.ui.button.add-btn{
 .ui .card:hover{
   cursor: pointer;
 }
+
+.add-form input[type="text"],
+.add-form input[type="date"],
+.add-form input[type="datetime"],
+.add-form input[type="email"],
+.add-form input[type="number"],
+.add-form input[type="search"],
+.add-form input[type="time"],
+.add-form input[type="url"],
+.add-form input[type="password"],
+.add-form textarea,
+.add-form select
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+    font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+}
+.limbo-form textarea{
+    resize:none;
+    overflow: hidden;
+}
