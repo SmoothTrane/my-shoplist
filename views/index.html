@@ -44,7 +44,7 @@
                     <img src =  {{item.image}} >
                   </div>
                   <div class="content">
-                    <a class="header item-name">{{item.name}}</a>
+                    <span class="header item-name">{{item.name}}</span>
                     <div class="meta">
                     </div>
 
@@ -64,39 +64,52 @@
 
 
 
-        <div class="ui modal">
-          <i class="close icon"></i>
-          <div class="header">
-            Add New Item
-          </div>
-          <div class="image content">
-            <div class="ui medium image">
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Add New Item
+      </div>
+      <div class="content">
+          <form class="ui form item-form">
+            <div class="field">
+              <label>Item Name</label>
+              <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
             </div>
-            <div class="description">
-              <form class="ui form">
-                <div class="field">
-                  <label>Item Name</label>
-                  <input type="text" name="name" placeholder="Item Name">
-                </div>
-                <div class="field">
-                  <label>Price</label>
-                  <input type="text" name="priceusd" placeholder="Item Price">
-                </div>
-                
-                <button class="ui button" type="submit">Submit</button>
-            </form>
+            <div class="field">
+              <label>Price</label>
+              <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
             </div>
-          </div>
-          <div class="actions">
-            <div class="ui black deny button">
-              Nope
+
+
+            <div class="field">
+              <label>Links</label>
+
+              <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
+
             </div>
-            <div class="ui positive right labeled icon button">
-              Yep, that's me
-              <i class="checkmark icon"></i>
+
+            <div class="field">
+              <label>Image</label>
+
+              <input class="item-form-image" type="file" name="image" accept="image/*">
+
             </div>
-          </div>
+
+
+
+
+        </form>
         </div>
+        <div class="actions">
+
+            <button class="ui button submit-form" type="submit">Submit</button>
+
+          </div>
+      </div>
+      </div>
+
+      </div>
+    </div>
 
 
 </div>
