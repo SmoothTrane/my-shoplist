@@ -70,7 +70,7 @@
         Add New Item
       </div>
       <div class="content">
-          <form class="ui form item-form">
+          <form class="ui form item-form" action="/items" method="POST" enctype="multipart/form-data">
             <div class="field">
               <label>Item Name</label>
               <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
@@ -95,16 +95,19 @@
 
             </div>
 
+            <div class="field">
+
+              <button class="ui button submit-form" type="submit">Submit</button>
+
+
+            </div>
+
 
 
 
         </form>
         </div>
-        <div class="actions">
 
-            <button class="ui button submit-form" type="submit">Submit</button>
-
-          </div>
       </div>
       </div>
 

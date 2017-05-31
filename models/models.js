@@ -1,8 +1,6 @@
 'use strict';
 var mongoose = require("mongoose");
-
 var dbSchema = mongoose.Schema;
-
 var itemSchema = new dbSchema ({
   name: {
     type: String
@@ -15,9 +13,12 @@ var itemSchema = new dbSchema ({
   priceusd:{
     type:String
   },
-  image:{
-    data: Buffer,
-    contentType:String
+  imageName:{
+    name:String,
+
+  },
+  imagePath:{
+    name: String
   }
 
 });
