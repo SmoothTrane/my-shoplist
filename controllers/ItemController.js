@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose'),
 
-Item = mongoose.model("Items");
+Item = mongoose.model("ShoppingItems");
 
 var path = require('path');
 
@@ -16,7 +16,15 @@ exports.getAllItems = function (req,res){
 };
 
 exports.addItem = function(req,res){
+  var fileName;
+  var file;
   var newItem = new Item(req.body);
+  file = req.file;
+   fileName = file.filename.toString();
+  console.log(fileName);
+  var path = req.file.path.toString();
+  newItem["imagePath"] = path;
+  newItem["imageName"] = fileName;
   newItem.save(function(err,item){
     if(err){
       res.send(err)
@@ -25,6 +33,7 @@ exports.addItem = function(req,res){
     res.json(item);
 
   });
+
 };
 
 

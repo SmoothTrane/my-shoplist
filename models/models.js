@@ -5,25 +5,22 @@ var itemSchema = new dbSchema ({
   name: {
     type: String
   },
-  link:{
+  priceusd: {
     type: String
-  }
-
-  ,
-  priceusd:{
+  },
+  imageName: {
+    type: String
+  },
+  imagePath: {
+    type: String
+  },
+  link: {
     type:String
-  },
-  imageName:{
-    name:String,
-
-  },
-  imagePath:{
-    name: String
   }
 
 });
 
-var Item = mongoose.model('Items', itemSchema);
+var Item = mongoose.model('ShoppingItems', itemSchema);
 // var i = new Item;
 // i.name = "Balenciaga Red Arena Leather High Top Sneakers"
 // i.links =   "http://www.neimanmarcus.com/Balenciaga-Men-s-Arena-Leather-High-Top-Sneaker/prod188650279/p.prod";

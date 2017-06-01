@@ -2,11 +2,12 @@
 var express = require("express");
 var path = require('path');
 var multer = require('multer');
+var Item = mongoose.model("ShoppingItems");
 
 
 var storage = multer.diskStorage({
  destination: function(req, file, cb) {
- cb(null, './uploads/')
+ cb(null, './public/images/')
  },
  filename: function(req, file, cb) {
  cb(null, file.originalname);
@@ -37,13 +38,10 @@ module.exports = function(app){
     res.sendFile(path.join(__dirname, '../views', 'index.html'));
   });
 
-  app.post('/items', upload.any(), function(req, res, next) {
-      console.log('files:', req.files)
-      console.log("body:", res.body);
-      // req.file.filename =
+  app.post('/items', upload.single("image"), function(req, res, next) {
+    itemController.addItem(req,res);
 
 
-      // more code
   });
 
   app.use(function(req, res) {
