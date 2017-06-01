@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Jockey+One');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
 html, body, .shop-container{
   position: absolute;
   height: 100%;
   width: 100%;
   background-color: #ECECEC;
+  font-family: 'Jockey One', sans-serif;
 
 }
 
@@ -30,7 +36,7 @@ p{
 }
 
 h1{
-  color: green;
+  color: grey;
   text-align: center;
 }
 
@@ -69,7 +75,10 @@ button.medium.ui.button.add-btn{
 }*/
 
 
-
+.link-btn{
+float:right;
+margin-bottom: 20%;;
+}
 .ui .card:hover{
   cursor: pointer;
 }
@@ -103,4 +112,9 @@ button.medium.ui.button.add-btn{
 .limbo-form textarea{
     resize:none;
     overflow: hidden;
+}
+
+
+.item-img{
+  max-height: 200px;
 }

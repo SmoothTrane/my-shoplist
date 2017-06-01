@@ -12,8 +12,25 @@ app.controller('ItemController', function($scope, $http) {
   });
 
 
+  $scope.showDeleteOption = function(){
+      $(".ui.basic.modal").modal("show");
 
+  }
+  $scope.deleteItem = function(){
+    var id = $(this).closest("data-id");
+    console.log(id);
+  //   $http({
+  //     method: 'DELETE',
+  //     url: '/items/ + id'
+  //   }).then(function successCallback(response) {
+  //       $(this).closest(".ui.card").remove();
+  //
+  //     }, function errorCallback(data) {
+  //         console.log('Error: ' + data);
+  //
+  // });
 
+  }
 
 
 });
@@ -23,41 +40,11 @@ app.controller('ItemController', function($scope, $http) {
 $(function(){
 
 
-function getJSONFields(){
-  var form = $(".item-form");
-  var formItemName = form.find(".item-form-name").val();
-  var formItemPrice = form.find(".item-form-price").val();
-  var formItemLink = form.find(".item-form-link").val();
-  var formItemImage = form.find(".item-form-image").val();
-  var item = {
-    name: formItemName,
-    priceusd: formItemPrice,
-    link: formItemLink,
-    image: formItemImage
-  };
-return item;
 
-
-}
   $(".add-btn").click(function(){
-    $('.ui.modal').modal('show');
+    $('.ui.modal.add').modal('show');
   });
 
 
-  $(".submit-form").click(function(){
 
-    $.ajax({
-
-    url:"/items",
-    type:"POST",
-    data: getJSONFields(),
-    dataType: "jsonp",
-    success: function (){
-
-    }
-
-  });
-
-
-  });
 })

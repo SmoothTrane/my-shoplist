@@ -26,35 +26,39 @@
 
 
 
-          <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
-          </p>
+          <!-- <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
+          </p> -->
           <button class="medium ui button add-btn">
             Add Item
           </button>
         </div>
 
         <div class="after-top">
-          <h1> Items to shop </h1>
 
           <div class="ui four column doubling stackable grid container" >
 
               <div class="column" ng-repeat="item in items">
-                <div class="ui card">
+                <div class="ui link card" ng-click="showDeleteOption()" data-id={{item._id}}>
                   <div class="image item-img">
                 <img src = {{item.imagePath}} >
                   </div>
                   <div class="content">
-                    <span class="header item-name">{{item.name}}</span>
+                    <span class="header item-name" >{{item.name}}</span>
                     <div class="meta">
                     </div>
 
 
                   </div>
                   <div class="extra content">
-                    <a>
-                      <i class="user icon"></i>
-                      <span class="item-price"> Price: {{item.priceusd}} </span>
-                    </a>
+                    <span>
+                      <i class="dollar icon"></i>
+                      <span class="item-price"> {{item.priceusd}} </span>
+                    </span>
+                    <span>
+                      <a class="ui button link-btn" href={{item.link}}>Link </a>
+
+
+                    </span>
                 </div>
               </div>
             </div>
@@ -64,10 +68,9 @@
 
 
 
-    <div class="ui modal">
+    <div class="ui modal add">
       <i class="close icon"></i>
       <div class="header">
-        Add New Item
       </div>
       <div class="content">
           <form class="ui form item-form" action="/items" method="POST" enctype="multipart/form-data">
@@ -102,13 +105,26 @@
 
             </div>
 
-
-
-
         </form>
         </div>
 
       </div>
+
+      <div class="ui basic modal">
+          <div class="content">
+            <p>Are you sure that you want to delete this item?</p>
+          </div>
+          <div class="actions">
+            <div class="ui red basic cancel inverted button">
+              <i class="remove icon"></i>
+              No
+            </div>
+            <div class="ui green ok inverted button delete-btn" ng-click="deleteItem()">
+              <i class="checkmark icon"></i>
+              Yes
+            </div>
+          </div>
+</div>
       </div>
 
       </div>

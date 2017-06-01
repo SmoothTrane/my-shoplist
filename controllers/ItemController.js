@@ -21,7 +21,6 @@ exports.addItem = function(req,res){
   var newItem = new Item(req.body);
   file = req.file;
    fileName = file.filename.toString();
-  console.log(fileName);
   var path = req.file.path.toString();
   newItem["imagePath"] = path;
   newItem["imageName"] = fileName;
@@ -29,7 +28,6 @@ exports.addItem = function(req,res){
     if(err){
       res.send(err)
     }
-    console.log("saved");
     res.json(item);
 
   });
