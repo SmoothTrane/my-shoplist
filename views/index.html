@@ -38,12 +38,14 @@
           <div class="ui four column doubling stackable grid container" >
 
               <div class="column" ng-repeat="item in items">
-                <div class="ui link card" ng-click="showDeleteOption()" data-id={{item._id}}>
+                <div class="ui link card">
                   <div class="image item-img">
                 <img src = {{item.imagePath}} >
                   </div>
                   <div class="content">
-                    <span class="header item-name" >{{item.name}}</span>
+                    <span class="header item-name" >{{item.name}}
+
+                    </span>
                     <div class="meta">
                     </div>
 
@@ -51,8 +53,7 @@
                   </div>
                   <div class="extra content">
                     <span>
-                      <i class="dollar icon"></i>
-                      <span class="item-price"> {{item.priceusd}} </span>
+                      <button class="ui button delete-btn" data-id={{item._id}} remove-card>Delete </button>
                     </span>
                     <span>
                       <a class="ui button link-btn" href={{item.link}}>Link </a>
@@ -119,7 +120,7 @@
               <i class="remove icon"></i>
               No
             </div>
-            <div class="ui green ok inverted button delete-btn" ng-click="deleteItem()">
+            <div class="ui green ok inverted button delete-btn">
               <i class="checkmark icon"></i>
               Yes
             </div>
