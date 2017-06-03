@@ -45,7 +45,8 @@ exports.getItemById = function(req,res){
 };
 
 exports.editItem = function(req,res){
-  Item.findOneAndUpdate(req.params.itemId, req.body, {new:true}, function(err,task){
+  Item.findByIdAndUpdate(req.params.itemId, req.body, {new:true}, function(err,item){
+
     if(err){
       res.send(err)
     }

@@ -38,7 +38,7 @@
           <div class="ui four column doubling stackable grid container" >
 
               <div class="column" ng-repeat="item in items">
-                <div class="ui link card">
+                <div class="ui link card" edit-card>
                   <div class="image item-img">
                 <img src = {{item.imagePath}} >
                   </div>
@@ -62,16 +62,18 @@
                     </span>
                 </div>
               </div>
+
             </div>
 
             </div>
         </div>
 
 
-
+<div class="invisible-modals">
     <div class="ui modal add">
       <i class="close icon"></i>
       <div class="header">
+        Add Item
       </div>
       <div class="content">
           <form class="ui form item-form" action="/items" method="POST" enctype="multipart/form-data">
@@ -83,34 +85,21 @@
               <label>Price</label>
               <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
             </div>
-
-
             <div class="field">
               <label>Links</label>
-
               <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
-
             </div>
-
             <div class="field">
               <label>Image</label>
-
               <input class="item-form-image" type="file" name="image" accept="image/*">
-
             </div>
 
             <div class="field">
-
               <button class="ui button submit-form" type="submit">Submit</button>
-
-
             </div>
-
         </form>
         </div>
-
       </div>
-
       <div class="ui basic modal">
           <div class="content">
             <p>Are you sure that you want to delete this item?</p>
@@ -125,7 +114,47 @@
               Yes
             </div>
           </div>
+      </div>
 </div>
+
+
+  <div class="ui small modal edit">
+      <i class="close icon"></i>
+      <div class="header">
+        Edit Item
+
+      </div>
+
+        <div class="content">
+
+          <form class="ui form item-form" action="/editItem/" method="POST">
+            <div class="field">
+              <label>Item Name</label>
+              <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
+            </div>
+            <div class="field">
+              <label>Price</label>
+              <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
+            </div>
+            <div class="field">
+              <label>Links</label>
+              <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
+            </div>
+            <div class="field">
+              <label>Image</label>
+              <input class="item-form-image" type="file" name="image" accept="image/*">
+            </div>
+
+            <div class="field">
+              <button class="ui button submit-form" type="submit">Submit</button>
+            </div>
+        </form>
+
+        </div>
+
+
+
+  </div>
       </div>
 
       </div>
@@ -133,6 +162,7 @@
 
 
 </div>
+
 
 
 
