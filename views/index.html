@@ -26,27 +26,31 @@
         <div class="top">
 
 
-
-          <h1> ShopList </h1>
+<!--
+           <h1> ShopList </h1>
            <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
-          </p>
-          <button class="medium ui button add-btn">
-            Add Item
-          </button>
+          </p> -->
 
-        </div>
-        <div class="after-top">
           <div class="input-wrapper">
             <div class="ui icon input srch">
                 <input type="text" placeholder="Search Items..." ng-model = "search">
                 <i class="search icon"></i>
           </div>
+          <button class="medium ui button add-btn">
+            New
+          </button>
+
+          </div>
+
+
         </div>
+        <div class="after-top">
+
 
           <div class="ui four column doubling stackable grid container tdt" >
 
               <div class="column" ng-repeat="item in items | filter:search">
-                <div class="ui link card" edit-card>
+                <div class="ui card item-card" edit-card>
                   <div class="image item-img">
                       <img src = {{item.imagePath}} >
                   </div>
@@ -103,11 +107,11 @@
             </div>
             <div class="field">
               <label class="field-label">Image</label>
-              <input class="item-form-image" type="file" name="image" accept="image/*">
+              <input class="item-form-image" type="file" name="image" accept="image/*" required>
             </div>
 
             <div class="field submit-field">
-              <button class="fluid ui green button submit-form" type="submit">Submit</button>
+              <button class="fluid ui  button submit-form" type="submit">Submit</button>
             </div>
         </form>
         </div>
@@ -142,15 +146,15 @@
           <form class="ui form item-form" action="/editItem/" method="POST">
             <div class="field">
               <label class="field-label">Item Name</label>
-              <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
+              <input class = "item-form-name" type="text" name="name" placeholder="Item Name">
             </div>
             <div class="field">
               <label class="field-label">Price</label>
-              <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
+              <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price">
             </div>
             <div class="field">
               <label class="field-label">Links</label>
-              <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
+              <input class="item-form-link" type="text" name="link" placeholder="Item Links">
             </div>
             <div class="field">
               <label class="field-label">Image</label>
@@ -158,7 +162,7 @@
             </div>
 
             <div class="field submit-field">
-              <button class="fluid ui green button submit-form" type="submit">Submit</button>
+              <button class="fluid ui  button submit-form" type="submit">Submit</button>
             </div>
         </form>
 

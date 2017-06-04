@@ -13,28 +13,7 @@ app.controller('ItemController', function($scope, $http) {
 
 
 
-  $scope.showDeleteOption = function(card){
-      var id = $(this)[0].item._id;
-      $('.ui.basic.modal')
-            .modal({
-              closable  : false,
-              onDeny    : function(){
-              },
-              onApprove : function() {
 
-                $http({
-                  method: 'DELETE',
-                  url: '/items/' + id
-                }).then(function successCallback(response) {
-                    card.remove();
-                  }, function errorCallback(data) {
-                      console.log('Error: ' + data);
-
-              });
-              }
-            }).modal('show');
-
-}
 });
 
 app.directive('removeCard', function ($http) {
@@ -42,12 +21,30 @@ app.directive('removeCard', function ($http) {
         link: function(scope, element, attrs) {
             element.bind("click",function($event) {
               $event.stopPropagation();
-              scope.showDeleteOption(element.parents(".ui.card"));
+              var id = scope.item._id;
+              var card = element.parents(".ui.card");
+              $('.ui.basic.modal')
+                    .modal({
+                      closable  : false,
+                      onDeny    : function(){
+                      },
+                      onApprove : function() {
+
+                        $http({
+                          method: 'DELETE',
+                          url: '/items/' + id
+                        }).then(function successCallback(response) {
+                            card.remove();
+                          }, function errorCallback(data) {
+                              console.log('Error: ' + data);
+
+                      });
+                      }
+                    }).modal('show');
             });
         }
     }
 });
-
 app.directive('editCard', function ($http) {
     return {
         link: function(scope, element, attrs) {
@@ -101,5 +98,8 @@ $(".link-btn").click(function(e){
 
 });
 
+function showNotification(){
+
+}
 
 })

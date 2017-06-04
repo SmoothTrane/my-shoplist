@@ -45,8 +45,11 @@ p{
 .top{
   width: 100%;
   background-color: #262626;
-  padding: 20px;
   text-align: center;
+  overflow: hidden;
+  top: 0;
+  position: fixed;
+  z-index: 4;
 }
 .top p{
   font-size: 20px;
@@ -58,31 +61,40 @@ min-height: 100%;
 color: black;
   background-color: #F5F5F5;
   padding: 20px;
+  margin-top: 50px;
 }
  .input-wrapper > .ui.input{
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
   vertical-align: middle;
+
 
 }
 .input-wrapper{
   text-align:center;
-  margin: 20px;
+  padding: 15px;
 }
 
 button.medium.ui.button.add-btn{
   background-color: white;
-  width: 200px;
+  width: 80px;
+  float: right;
+  font-size: 15px;
 
 }
 .items-container h1{
 }
 
 
-.ui.card{
+.ui.card .item-card{
   margin: 0 auto;
 }
 
+.ui.card.item-card:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transition: all 0.3s;
+  transform: translateZ(10px);
+}
 .cont{
 }
 
@@ -154,8 +166,8 @@ margin-bottom: 20%;;
 }
 .field.submit-field > .submit-form{
 font-size: 15px;
-  color: white;
-  background-color: #2ECC71;
+  color: black;
+  background-color: #D2D7D3;
 }
 .ui.form .field>.field-label{
   font-family: 'Jocky One', sans-serif;
@@ -184,7 +196,7 @@ Mobile Design
 
 @media only screen and (max-width: 767px){
 
-  .ui.link.card{
+  .ui.card.item-card{
     margin: 0 auto;
   }
 

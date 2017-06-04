@@ -1,9 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-
 Item = mongoose.model("ShoppingItems");
-
 var path = require('path');
 
 exports.getAllItems = function (req,res){
@@ -12,18 +10,14 @@ exports.getAllItems = function (req,res){
       res.send(err)
     }
     res.json(item);
+    
   });
 };
 
 exports.addItem = function(req,res){
-  var fileName;
-  var file;
   var newItem = new Item(req.body);
-  file = req.file;
-   fileName = file.filename.toString();
-  var path = req.file.path.toString();
-  newItem["imagePath"] = path;
-  newItem["imageName"] = fileName;
+  newItem["imagePath"] = req.file.path;
+  newItem["imageName"] = req.file.filename;
   newItem.save(function(err,item){
     if(err){
       res.send(err)
@@ -46,7 +40,6 @@ exports.getItemById = function(req,res){
 
 exports.editItem = function(req,res){
   Item.findByIdAndUpdate(req.params.itemId, req.body, {new:true}, function(err,item){
-
     if(err){
       res.send(err)
     }
