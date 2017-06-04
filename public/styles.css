@@ -7,8 +7,8 @@ html, body, .shop-container{
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #ECECEC;
-  font-family: 'Jockey One', sans-serif;
+
+  font-family: 'Josefin Sans', sans-serif;
 
 }
 
@@ -35,9 +35,11 @@ p{
   color: white;
 }
 
-h1{
-  color: grey;
+.top h1{
+  color: white;
   text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .top{
@@ -46,12 +48,26 @@ h1{
   padding: 20px;
   text-align: center;
 }
+.top p{
+  font-size: 20px;
+}
 
 .after-top{
   width: 100%;
 min-height: 100%;
 color: black;
-  background-color: white;
+  background-color: #F5F5F5;
+  padding: 20px;
+}
+ .input-wrapper > .ui.input{
+  margin: 0 auto;
+  width: 50%;
+  vertical-align: middle;
+
+}
+.input-wrapper{
+  text-align:center;
+  margin: 20px;
 }
 
 button.medium.ui.button.add-btn{
@@ -117,4 +133,60 @@ margin-bottom: 20%;;
 
 .item-img{
   max-height: 400px;
+}
+
+
+.dab{
+  margin-top: 5px;
+  color: #2ecc71;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+
+}
+
+.edit{
+  background-color: red;
+}
+
+
+.field.submit-field{
+  text-align: center;
+}
+.field.submit-field > .submit-form{
+font-size: 15px;
+  color: white;
+  background-color: #2ECC71;
+}
+.ui.form .field>.field-label{
+  font-family: 'Jocky One', sans-serif;
+
+}
+.ui.modal>.header.add{
+  background-color: #3FC380;
+  color: white;
+  text-align: center;
+}
+.ui.modal>.header.edit{
+  background-color: #CF000F;
+  color: white;
+  text-align: center;
+}
+.ui.button.submit-form{
+  margin: 0 auto;
+}
+
+/*
+Mobile Design
+
+
+*/
+
+
+@media only screen and (max-width: 767px){
+
+  .ui.link.card{
+    margin: 0 auto;
+  }
+
+
 }

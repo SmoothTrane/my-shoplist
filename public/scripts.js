@@ -12,7 +12,7 @@ app.controller('ItemController', function($scope, $http) {
   });
 
 
-  //
+
   $scope.showDeleteOption = function(card){
       var id = $(this)[0].item._id;
       $('.ui.basic.modal')
@@ -40,7 +40,8 @@ app.controller('ItemController', function($scope, $http) {
 app.directive('removeCard', function ($http) {
     return {
         link: function(scope, element, attrs) {
-            element.bind("click",function() {
+            element.bind("click",function($event) {
+              $event.stopPropagation();
               scope.showDeleteOption(element.parents(".ui.card"));
             });
         }
@@ -50,7 +51,8 @@ app.directive('removeCard', function ($http) {
 app.directive('editCard', function ($http) {
     return {
         link: function(scope, element, attrs) {
-            element.bind("click",function() {
+            element.bind("click",function($event) {
+              $event.stopPropagation();
               $(".ui.small.modal.edit").find(".item-form").attr("action","/editItem/");
               var itemId = scope.item._id
               $(".ui.small.modal.edit").modal("show");
@@ -67,6 +69,23 @@ app.directive('editCard', function ($http) {
     }
 });
 
+app.directive('linkCard', function(){
+
+return {
+  link: function(scope,element, attrs){
+    element.bind("click", function($event){
+      $event.stopPropagation();
+      window.location.href = scope.item.link
+
+    });
+
+  }
+}
+
+
+});
+
+
 $(function(){
 
 
@@ -77,6 +96,10 @@ $(function(){
 
 
 
+$(".link-btn").click(function(e){
+  e.stopPropagation();
+
+});
 
 
 })

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -14,7 +16,7 @@
 
 
 </script>
-
+<title>ShopList</title>
 </head>
 
 <body ng-app="ShopList">
@@ -25,41 +27,51 @@
 
 
 
-
-          <!-- <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
-          </p> -->
+          <h1> ShopList </h1>
+           <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
+          </p>
           <button class="medium ui button add-btn">
             Add Item
           </button>
+
+        </div>
+        <div class="after-top">
+          <div class="input-wrapper">
+            <div class="ui icon input srch">
+                <input type="text" placeholder="Search Items..." ng-model = "search">
+                <i class="search icon"></i>
+          </div>
         </div>
 
-        <div class="after-top">
+          <div class="ui four column doubling stackable grid container tdt" >
 
-          <div class="ui four column doubling stackable grid container" >
-
-              <div class="column" ng-repeat="item in items">
+              <div class="column" ng-repeat="item in items | filter:search">
                 <div class="ui link card" edit-card>
                   <div class="image item-img">
-                <img src = {{item.imagePath}} >
+                      <img src = {{item.imagePath}} >
                   </div>
                   <div class="content">
                     <span class="header item-name" >{{item.name}}
 
+
                     </span>
-                    <div class="meta">
+
+                    <div class="dab">
+                         {{item.priceusd | currency}}
                     </div>
 
 
                   </div>
                   <div class="extra content">
-                    <span>
-                      <button class="ui button delete-btn" data-id={{item._id}} remove-card>Delete </button>
-                    </span>
-                    <span>
-                      <a class="ui button link-btn" href={{item.link}}>Link </a>
+
+                          <div class="ui red button delete-btn"  data-id={{item._id}} remove-card>
+                             Delete
+                          </div>
 
 
-                    </span>
+                      <div class="ui blue button link-btn" link-card>Link
+
+                      </div>
                 </div>
               </div>
 
@@ -72,30 +84,30 @@
 <div class="invisible-modals">
     <div class="ui modal add">
       <i class="close icon"></i>
-      <div class="header">
+      <div class="header add">
         Add Item
       </div>
       <div class="content">
           <form class="ui form item-form" action="/items" method="POST" enctype="multipart/form-data">
             <div class="field">
-              <label>Item Name</label>
+              <label class="field-label">Item Name</label>
               <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
             </div>
             <div class="field">
-              <label>Price</label>
+              <label class="field-label">Price</label>
               <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
             </div>
             <div class="field">
-              <label>Links</label>
+              <label class="field-label">Links</label>
               <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
             </div>
             <div class="field">
-              <label>Image</label>
+              <label class="field-label">Image</label>
               <input class="item-form-image" type="file" name="image" accept="image/*">
             </div>
 
-            <div class="field">
-              <button class="ui button submit-form" type="submit">Submit</button>
+            <div class="field submit-field">
+              <button class="fluid ui green button submit-form" type="submit">Submit</button>
             </div>
         </form>
         </div>
@@ -120,7 +132,7 @@
 
   <div class="ui small modal edit">
       <i class="close icon"></i>
-      <div class="header">
+      <div class="header edit">
         Edit Item
 
       </div>
@@ -129,24 +141,24 @@
 
           <form class="ui form item-form" action="/editItem/" method="POST">
             <div class="field">
-              <label>Item Name</label>
+              <label class="field-label">Item Name</label>
               <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
             </div>
             <div class="field">
-              <label>Price</label>
+              <label class="field-label">Price</label>
               <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
             </div>
             <div class="field">
-              <label>Links</label>
+              <label class="field-label">Links</label>
               <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
             </div>
             <div class="field">
-              <label>Image</label>
+              <label class="field-label">Image</label>
               <input class="item-form-image" type="file" name="image" accept="image/*">
             </div>
 
-            <div class="field">
-              <button class="ui button submit-form" type="submit">Submit</button>
+            <div class="field submit-field">
+              <button class="fluid ui green button submit-form" type="submit">Submit</button>
             </div>
         </form>
 
