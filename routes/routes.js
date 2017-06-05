@@ -6,12 +6,12 @@ var Item = mongoose.model("ShoppingItems");
 
 
 var storage = multer.diskStorage({
- destination: function(req, file, cb) {
- cb(null, './public/images/')
- },
- filename: function(req, file, cb) {
- cb(null, file.originalname);
- }
+   destination: function(req, file, cb) {
+     cb(null, './public/images/')
+   },
+   filename: function(req, file, cb) {
+     cb(null, file.originalname);
+   }
 });
 
 var upload= multer({
@@ -23,7 +23,6 @@ module.exports = function(app){
   var homeController = require("../controllers/HomeController");
 
   app.get('/', function(req, res) {
-
     res.sendFile(path.join(__dirname, '../views', 'index.html'));
   });
 
@@ -48,9 +47,6 @@ module.exports = function(app){
   app.delete('/items/:itemId', function(req, res) {
     itemController.deleteItem(req,res)
   });
-
-
-
 
 
   app.use(function(req, res) {

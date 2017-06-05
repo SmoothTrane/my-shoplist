@@ -3,14 +3,13 @@
 var mongoose = require('mongoose'),
 Item = mongoose.model("ShoppingItems");
 var path = require('path');
-
 exports.getAllItems = function (req,res){
   Item.find({},function(err,item) {
     if(err){
       res.send(err)
     }
     res.json(item);
-    
+
   });
 };
 
@@ -22,7 +21,7 @@ exports.addItem = function(req,res){
     if(err){
       res.send(err)
     }
-    res.json(item);
+    res.redirect('back');
 
   });
 
@@ -43,7 +42,7 @@ exports.editItem = function(req,res){
     if(err){
       res.send(err)
     }
-    res.json(item);
+    res.redirect('back');
   });
 
 };
