@@ -26,7 +26,7 @@ module.exports = function(app){
     res.sendFile(path.join(__dirname, '../views', 'index.html'));
   });
 
-  app.get('/items', function(req, res) {
+  app.post('/getItems', function(req, res) {
     itemController.getAllItems(req,res);
   });
 
@@ -40,7 +40,7 @@ module.exports = function(app){
       itemController.editItem(req,res);
   });
 
-  app.get('/items/:itemId', function(req, res) {
+  app.post('/items/:itemId', function(req, res) {
     itemController.getItemById(req,res);
   });
 
@@ -50,7 +50,7 @@ module.exports = function(app){
 
 
   app.use(function(req, res) {
-    res.status(404).send("ERROR 404 NOT FOUND")
+    res.status(404).send("<h1> ERROR 404 NOT FOUND </h1>")
   });
 
 

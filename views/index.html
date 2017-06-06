@@ -40,10 +40,7 @@
           <button class="medium ui button add-btn">
             New
           </button>
-
           </div>
-
-
         </div>
         <div class="after-top">
 
@@ -93,7 +90,7 @@
         Add Item
       </div>
       <div class="content">
-          <form class="ui form item-form" action="/items" method="POST" enctype="multipart/form-data">
+          <form class="ui form item-form add-form" action="/items" method="POST" enctype="multipart/form-data">
             <div class="field">
               <label class="field-label">Item Name</label>
               <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
@@ -144,7 +141,7 @@
 
         <div class="content">
 
-          <form class="ui form item-form" action="/editItem/" method="POST">
+          <form class="ui form item-form edit-form" action="/editItem/" method="POST">
             <div class="field">
               <label class="field-label">Item Name</label>
               <input class = "item-form-name" type="text" name="name" placeholder="Item Name">

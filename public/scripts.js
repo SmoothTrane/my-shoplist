@@ -1,8 +1,8 @@
 var app = angular.module("ShopList", []);
 app.controller('ItemController', function($scope, $http) {
     $http({
-      method: 'GET',
-      url: '/items'
+      method: 'POST',
+      url: '/getItems'
     }).then(function successCallback(response) {
         $scope.items = response.data;
 
@@ -87,16 +87,24 @@ $(function(){
 
 
 
+
   $(".add-btn").click(function(){
     $('.ui.modal.add').modal('show');
   });
 
+  $(".link-btn").click(function(e){
+    e.stopPropagation();
 
+  });
+  //
+  // $(".add-form").submit(function(e){
+  // });
+  //
 
-$(".link-btn").click(function(e){
-  e.stopPropagation();
+  $(".edit-form").submit(function(e){
+    alert(123);
 
-});
+  });
 
 function showNotification(){
 
