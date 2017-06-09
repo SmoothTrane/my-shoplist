@@ -5,6 +5,9 @@ var express = require('express'),
   Item = require("./models/models"),
   bodyParser = require("body-parser");
 var localDB = 'mongodb://localhost/ShopListDb'
+const URI = process.env.MONGODB_URI;
+console.log(URI);
+
 
   mongoose.connect("mongodb://GColtrane:test123@ds163711.mlab.com:63711/shoplistdb");
 
