@@ -4,9 +4,9 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Item = require("./models/models"),
   bodyParser = require("body-parser");
+var localDB = 'mongodb://localhost/ShopListDb'
 
-  mongoose.Promise = global.Promise;
-  mongoose.connect('mongodb://GColtrane:test123@ds163711.mlab.com:63711/shoplistdb');
+  mongoose.connect("mongodb://GColtrane:test123@ds163711.mlab.com:63711/shoplistdb");
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
