@@ -7,7 +7,7 @@ var express = require('express'),
 
   mongoose.Promise = global.Promise;
   console.log(process.env.MONGODB_URI);
-  mongoose.connect('mongodb://localhost/ShopListDb');
+  mongoose.connect('mongodb://GColtrane:test123@ds163711.mlab.com:63711/shoplistdb');
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
