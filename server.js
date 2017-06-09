@@ -3,12 +3,10 @@ var express = require('express'),
   port = process.env.PORT || 3000;
   mongoose = require('mongoose'),
   Item = require("./models/models"),
-  bodyParser = require("body-parser");
+  bodyParser = require("body-parser"),
+  db = require("./db");
 var localDB = 'mongodb://localhost/ShopListDb'
-const URI = process.env.MONGODB_URI;
-
-
-  mongoose.connect(URI);
+  mongoose.connect(db);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
