@@ -6,7 +6,8 @@ var express = require('express'),
   bodyParser = require("body-parser"),
   db = require("./db");
 var localDB = 'mongodb://localhost/ShopListDb'
-  mongoose.connect(localDB);
+console.log(db);
+  mongoose.connect(db);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
