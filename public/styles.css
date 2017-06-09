@@ -163,22 +163,21 @@ font-size: 15px;
 }
 
 
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-select:focus,
-textarea {
+.item-form input[type="color"],
+.item-form form input[type="datetime"],
+.item-form input[type="datetime-local"],
+.item-form input[type="email"],
+.item-form input[type="month"],
+.item-form input[type="number"],
+.item-form input[type="password"],
+.item-form input[type="search"],
+.item-form input[type="tel"],
+.item-form input[type="text"],
+.item-for input[type="time"],
+.item-form input[type="url"],
+.item-form input[type="week"],
+.item-form select:focus,
+.item-form textarea {
   font-size: 16px !important;
 }
 
@@ -200,4 +199,7 @@ Mobile Design
     transform: translateZ(0px);
   }
 
+  .top h1{
+    padding:16px 0 0 9px;
+  }
 }
