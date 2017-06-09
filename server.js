@@ -6,6 +6,7 @@ var express = require('express'),
   bodyParser = require("body-parser");
 
   mongoose.Promise = global.Promise;
+  console.log(process.env.MONGODB_URI);
   mongoose.connect('mongodb://localhost/ShopListDb');
 
 
