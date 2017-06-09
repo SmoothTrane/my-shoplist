@@ -50,7 +50,7 @@ p{
   overflow: hidden;
   top: 0;
   position: fixed;
-  z-index: 4;
+
   border-bottom: 1px solid #222;
 }
 .top p{
@@ -161,6 +161,7 @@ font-size: 15px;
   margin: 0 auto;
 }
 
+
 input[type="color"],
 input[type="date"],
 input[type="datetime"],
@@ -177,7 +178,7 @@ input[type="url"],
 input[type="week"],
 select:focus,
 textarea {
-  font-size: 16px;
+  font-size: 16px !important;
 }
 
 /*
