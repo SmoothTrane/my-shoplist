@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"> </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"> </script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"> </script>
+       <script src="/public/scripts.js"> </script>
+       <link rel = "stylesheet" type="text/css" href="/public/styles.css">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.1.7/semantic.min.css">
+<script>
+
+
+</script>
+<title>ShopList</title>
+</head>
+
+<body ng-app="ShopList">
+
+  <div class="shop-container" ng-controller="ItemController">
+
+        <div class="top">
+
+
+
+           <h1> SL </h1>
+           <!--
+           <p> Welcome to your shopping list, add, view, or delete various items that you have on your list to buy.
+          </p> -->
+
+          <div class="input-wrapper">
+            <div class="ui icon input srch">
+                <input type="text" placeholder="Search Items..." ng-model = "search">
+                <i class="search icon"></i>
+          </div>
+          <button class="medium ui button add-btn">
+            New
+          </button>
+          </div>
+        </div>
+        <div class="after-top">
+
+
+          <div class="ui four column doubling stackable grid container tdt" >
+
+              <div class="column" ng-repeat="item in items | filter:search">
+                <div class="ui card item-card" edit-card>
+                  <div class="image item-img">
+                      <img src = {{item.imagePath}} >
+                  </div>
+                  <div class="content">
+                    <span class="header item-name" >{{item.name}}
+
+
+                    </span>
+
+                    <div class="dab">
+                         {{item.priceusd | currency}}
+                    </div>
+
+
+                  </div>
+                  <div class="extra content">
+
+                          <div class="ui red button delete-btn"  data-id={{item._id}} remove-card>
+                             Delete
+                          </div>
+
+
+                      <div class="ui blue button link-btn" link-card>Link
+
+                      </div>
+                </div>
+              </div>
+
+            </div>
+
+            </div>
+        </div>
+
+
+<div class="invisible-modals">
+    <div class="ui modal add">
+      <i class="close icon"></i>
+      <div class="header add">
+        Add Item
+      </div>
+      <div class="content">
+          <form class="ui form item-form add-form" action="/items" method="POST" enctype="multipart/form-data">
+            <div class="field">
+              <label class="field-label">Item Name</label>
+              <input class = "item-form-name" type="text" name="name" placeholder="Item Name" required>
+            </div>
+            <div class="field">
+              <label class="field-label">Price</label>
+              <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price" required>
+            </div>
+            <div class="field">
+              <label class="field-label">Links</label>
+              <input class="item-form-link" type="text" name="link" placeholder="Item Links" required>
+            </div>
+            <div class="field">
+              <label class="field-label">Image</label>
+              <input class="item-form-image" type="file" name="image" accept="image/*" required>
+            </div>
+
+            <div class="field submit-field">
+              <button class="fluid ui  button submit-form" type="submit">Submit</button>
+            </div>
+        </form>
+        </div>
+      </div>
+      <div class="ui basic modal">
+          <div class="content">
+            <p>Are you sure that you want to delete this item?</p>
+          </div>
+          <div class="actions">
+            <div class="ui red basic cancel inverted button">
+              <i class="remove icon"></i>
+              No
+            </div>
+            <div class="ui green ok inverted button delete-btn">
+              <i class="checkmark icon"></i>
+              Yes
+            </div>
+          </div>
+      </div>
+</div>
+
+
+  <div class="ui small modal edit">
+      <i class="close icon"></i>
+      <div class="header edit">
+        Edit Item
+
+      </div>
+
+        <div class="content">
+
+          <form class="ui form item-form edit-form" action="/editItem/" method="POST">
+            <div class="field">
+              <label class="field-label">Item Name</label>
+              <input class = "item-form-name" type="text" name="name" placeholder="Item Name">
+            </div>
+            <div class="field">
+              <label class="field-label">Price</label>
+              <input class="item-form-price" type="text" name="priceusd" placeholder="Item Price">
+            </div>
+            <div class="field">
+              <label class="field-label">Links</label>
+              <input class="item-form-link" type="text" name="link" placeholder="Item Links">
+            </div>
+            <div class="field">
+              <label class="field-label">Image</label>
+              <input class="item-form-image" type="file" name="image" accept="image/*">
+            </div>
+
+            <div class="field submit-field">
+              <button class="fluid ui  button submit-form" type="submit">Submit</button>
+            </div>
+        </form>
+
+        </div>
+
+
+
+  </div>
+      </div>
+
+      </div>
+    </div>
+
+
+</div>
+
+
+
+
+</body>
+
+</html>
