@@ -6,8 +6,7 @@ var express = require('express'),
   bodyParser = require("body-parser");
 
   mongoose.Promise = global.Promise;
-  console.log(process.env.MONGODB_URI);
-  mongoose.connect('mongodb://GColtrane:test123@ds163711.mlab.com:63711/shoplistdb');
+  mongoose.connect(process.env.MONGODB_URI);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
